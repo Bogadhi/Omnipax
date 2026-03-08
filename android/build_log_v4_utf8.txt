@@ -1,0 +1,85 @@
+﻿Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+Calculating task graph as configuration cache cannot be reused because file 'gradle.properties' has changed.
+./gradlew.bat : Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of 
+version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were 
+released at different times.
+At line:1 char:1
++ ./gradlew.bat clean :app:assembleDebug > build_log_v3.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Warning: SDK pr...ifferent times.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:clean
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:generateDebugResValues
+> Task :app:generateDebugResources
+> Task :app:generateDebugBuildConfig
+> Task :app:desugarDebugFileDependencies
+> Task :app:validateSigningDebug
+> Task :app:extractDeepLinksDebug
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:packageDebugResources
+> Task :app:javaPreCompileDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mapDebugSourceSetPaths
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:mergeDebugAssets
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:compressDebugAssets
+> Task :app:checkDebugAarMetadata
+> Task :app:checkDebugDuplicateClasses
+> Task :app:parseDebugLocalResources
+> Task :app:mergeLibDexDebug
+
+> Task :app:processDebugMainManifest
+package="com.ticketbooking" found in source AndroidManifest.xml: C:\Users\bogad\ticket booking project\android\app\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.ticketbooking" from the source AndroidManifest.xml: C:\Users\bogad\ticket booking project\android\app\src\main\AndroidManifest.xml.
+
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugResources
+> Task :app:mergeExtDexDebug
+> Task :app:processDebugResources
+> Task :app:kaptGenerateStubsDebugKotlin
+> Task :app:kaptDebugKotlin
+
+> Task :app:compileDebugKotlin
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/MainActivity.kt:91:59 'List: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.List
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/booking/BookingScreen.kt:20:5 Parameter 'eventTitle' is never used
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/booking/BookingScreen.kt:23:5 Parameter 'onBookingFailure' is never used
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/booking/BookingScreen.kt:29:9 Variable 'activity' is never used
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/booking/BookingViewModel.kt:70:21 'when' is exhaustive so 'else' is redundant here
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/booking/BookingViewModel.kt:311:45 Unnecessary safe call on a non-null receiver of type SeatDetailsDto?
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/events/EventDetailsScreen.kt:16:5 Parameter 'onBackClick' is never used
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/events/EventDetailsScreen.kt:87:52 Unnecessary safe call on a non-null receiver of type Int
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/events/EventDetailsScreen.kt:87:65 Elvis operator (?:) always returns the left operand of non-nullable type Double
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/utils/TokenManager.kt:5:33 'MasterKeys' is deprecated. Deprecated in Java
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/utils/TokenManager.kt:16:34 'MasterKeys' is deprecated. Deprecated in Java
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/utils/TokenManager.kt:16:57 'MasterKeys' is deprecated. Deprecated in Java
+w: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/utils/TokenManager.kt:26:64 'create(String, String, Context, EncryptedSharedPreferences.PrefKeyEncryptionScheme, EncryptedSharedPreferences.PrefValueEncryptionScheme): SharedPreferences' is deprecated. Deprecated in Java
+
+> Task :app:compileDebugJavaWithJavac
+> Task :app:hiltAggregateDepsDebug
+> Task :app:hiltJavaCompileDebug
+> Task :app:processDebugJavaRes
+> Task :app:transformDebugClassesWithAsm
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugGlobalSynthetics
+> Task :app:mergeProjectDexDebug
+> Task :app:mergeDebugJavaResource
+> Task :app:packageDebug
+> Task :app:assembleDebug
+> Task :app:createDebugApkListingFileRedirect
+
+BUILD SUCCESSFUL in 2m 3s
+41 actionable tasks: 41 executed
+Configuration cache entry stored.

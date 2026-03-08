@@ -1,0 +1,70 @@
+﻿  console.log
+    OTP for idem@test.com: 782253
+
+      at AuthService.requestOtp (../src/auth/auth.service.ts:31:13)
+
+  console.log
+    RES1 STATUS: 201 BODY: {
+      success: true,
+      bookingId: '3dafb1a7-ed9c-40cf-99d2-a240eb46d8ae',
+      amount: 10
+    }
+
+      at Object.<anonymous> (idempotency.e2e-spec.ts:104:13)
+
+node.exe : FAIL test/idempotency.e2e-spec.ts
+At line:1 char:1
++ & "C:\Users\bogad\Downloads/node.exe" 
+"C:\Users\bogad\Downloads/node_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL test/ 
+   idempotency.e2e-spec.ts:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Idempotency (E2E)
+    ├ù should return cached response for duplicate 
+request (1116 ms)
+
+  ΓùÅ Idempotency (E2E) ΓÇ║ should return cached 
+response for duplicate request
+
+    expect(received).toBe(expected) // Object.is 
+equality
+
+    Expected: 201
+    Received: 409
+
+    [0m [90m 118 |[39m     [90m// If idempotency 
+works, it returns the CACHED 201 response.[39m
+     [90m 119 |[39m     [90m// If it fails 
+(interceptor bypassed), it hits service -> Redis Lock 
+Check -> 400 Bad Request[39m
+    [31m[1m>[22m[39m[90m 120 |[39m     expect(res2
+[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[
+39m
+     [90m     |[39m                         
+[31m[1m^[22m[39m
+     [90m 121 |[39m     expect(res2[33m.[39mbody)[3
+3m.[39mtoEqual(res1[33m.[39mbody)[33m;[39m [90m// 
+Same response body[39m
+     [90m 122 |[39m
+     [90m 123 |[39m     [90m// DB Integrity 
+check[39m[0m
+
+      at Object.<anonymous> 
+(idempotency.e2e-spec.ts:120:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        4.559 s, estimated 6 s
+Ran all test suites matching 
+test/idempotency.e2e-spec.ts.
+Jest did not exit one second after the test run has 
+completed.
+
+'This usually means that there are asynchronous 
+operations that weren't stopped in your tests. Consider 
+running Jest with `--detectOpenHandles` to troubleshoot 
+this issue.

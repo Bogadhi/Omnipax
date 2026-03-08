@@ -1,0 +1,42 @@
+﻿
+> backend@0.0.1 test:e2e
+> jest --config ./test/jest-e2e.json --runInBand test/onboarding.e2e-spec.ts
+
+node.exe : FAIL test/onboarding.e2e-spec.ts
+At line:1 char:1
++ & "C:\Users\bogad\Downloads/node.exe" 
+"C:\Users\bogad\Downloads/node_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL test/onbo 
+   arding.e2e-spec.ts:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  ΓùÅ Test suite failed to run
+
+    [96msrc/theater-onboarding/theater-onboarding.controlle
+r.ts[0m:[93m19[0m:[93m38[0m - [91merror[0m[90m 
+TS2307: [0mCannot find module 
+'../auth/interfaces/authenticated-request.interface' or its 
+corresponding type declarations.
+
+    [7m19[0m import { AuthenticatedRequest } from 
+'../auth/interfaces/authenticated-request.interface';
+    [7m  [0m [91m                                     
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        18.804 s
+Ran all test suites matching test/onboarding.e2e-spec.ts.
+npm error Lifecycle script `test:e2e` failed with error:
+npm error code 1
+npm error path C:\Users\bogad\ticket booking project\backend
+npm error workspace backend@0.0.1
+npm error location C:\Users\bogad\ticket booking 
+project\backend
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c jest 
+--config ./test/jest-e2e.json --runInBand 
+test/onboarding.e2e-spec.ts

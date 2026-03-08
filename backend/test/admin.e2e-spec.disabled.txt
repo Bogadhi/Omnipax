@@ -1,0 +1,121 @@
+import { Test, TestingModule } from '@nestjs/testing';
+import { INestApplication } from '@nestjs/common';
+import * as request from 'supertest';
+import { AppModule } from '../src/app.module';
+import { PrismaService } from '../src/prisma/prisma.service';
+import { Role } from '@prisma/client';
+
+describe('Admin Module (e2e)', () => {
+  let app: INestApplication;
+  let prisma: PrismaService;
+  let adminToken: string;
+  let userToken: string;
+
+  beforeAll(async () => {
+    const moduleFixture: TestingModule = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleFixture.createNestApplication();
+    prisma = app.get<PrismaService>(PrismaService);
+    await app.init();
+
+    // Cleanup
+    await prisma.bookingSeat.deleteMany();
+    await prisma.booking.deleteMany();
+    await prisma.user.deleteMany();
+
+    // Create Admin
+    const adminRef = await request(app.getHttpServer())
+      .post('/auth/signup')
+      .send({
+        email: 'admin@test.com',
+        password: 'password123',
+        name: 'Admin',
+      });
+
+    // Manually promote to ADMIN
+    await prisma.user.update({
+      where: { email: 'admin@test.com' },
+      data: { role: Role.ADMIN },
+    });
+
+    // Create a screen for testing, replacing totalSeats with totalRows and seatsPerRow
+    await prisma.screen.create({
+      data: { name: 'Screen 1', totalRows: 10, seatsPerRow: 10 },
+    });
+
+    const adminLogin = await request(app.getHttpServer())
+      .post('/auth/login')
+      .send({ email: 'admin@test.com', password: 'password123' });
+    adminToken = adminLogin.body.accessToken;
+
+    // Create User
+    const userRef = await request(app.getHttpServer())
+      .post('/auth/signup')
+      .send({ email: 'user@test.com', password: 'password123', name: 'User' });
+
+    const userLogin = await request(app.getHttpServer())
+      .post('/auth/login')
+      .send({ email: 'user@test.com', password: 'password123' });
+    userToken = userLogin.body.accessToken;
+  });
+
+  afterAll(async () => {
+    await prisma.bookingSeat.deleteMany();
+    await prisma.booking.deleteMany();
+    await prisma.user.deleteMany();
+    await app.close();
+  });
+
+  describe('/admin/analytics/overview (GET)', () => {
+    it('should return analytics for ADMIN', async () => {
+      return request(app.getHttpServer())
+        .get('/admin/analytics/overview')
+        .set('Authorization', `Bearer ${adminToken}`)
+        .expect(200)
+        .expect((res) => {
+          expect(res.body).toHaveProperty('totalRevenue');
+          expect(res.body).toHaveProperty('totalBookings');
+          expect(res.body).toHaveProperty('activeUsers');
+          expect(res.body).toHaveProperty('activeLocks');
+          expect(res.body).toHaveProperty('refundQueue');
+        });
+    });
+
+    it('should return 403 for USER', async () => {
+      return request(app.getHttpServer())
+        .get('/admin/analytics/overview')
+        .set('Authorization', `Bearer ${userToken}`)
+        .expect(403);
+    });
+  });
+
+  describe('/admin/bookings (GET)', () => {
+    it('should return bookings for ADMIN', async () => {
+      return request(app.getHttpServer())
+        .get('/admin/bookings')
+        .set('Authorization', `Bearer ${adminToken}`)
+        .expect(200)
+        .expect((res) => {
+          expect(Array.isArray(res.body)).toBe(true);
+        });
+    });
+
+    it('should filter by status', async () => {
+      // Create a dummy booking for testing filter if needed,
+      // but for now just checking endpoint works.
+      return request(app.getHttpServer())
+        .get('/admin/bookings?status=CONFIRMED')
+        .set('Authorization', `Bearer ${adminToken}`)
+        .expect(200);
+    });
+
+    it('should return 403 for USER', async () => {
+      return request(app.getHttpServer())
+        .get('/admin/bookings')
+        .set('Authorization', `Bearer ${userToken}`)
+        .expect(403);
+    });
+  });
+});

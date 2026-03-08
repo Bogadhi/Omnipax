@@ -1,0 +1,89 @@
+backend-1  | Running database migrations...
+backend-1  | prisma:warn Prisma failed to detect the libssl/openssl version to use, and may not work as expected. Defaulting to "openssl-1.1.x".
+backend-1  | Please manually install OpenSSL and try installing Prisma again.
+backend-1  | prisma:warn Prisma failed to detect the libssl/openssl version to use, and may not work as expected. Defaulting to "openssl-1.1.x".
+backend-1  | Please manually install OpenSSL and try installing Prisma again.
+backend-1  | Prisma schema loaded from prisma/schema.prisma
+backend-1  | Datasource "db": PostgreSQL database "ticket_booking", schema "public" at "postgres:5432"
+backend-1  | 
+backend-1  | Error: Could not parse schema engine response: SyntaxError: Unexpected token 'E', "Error load"... is not valid JSON
+backend-1  | Starting the application...
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:26 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +26ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mNotificationModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +6ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mLoggerModule dependencies initialized[39m[38;5;3m +1ms[39m
+backend-1  | Initializing Cache with Redis URL: redis://redis:6379
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuditModule dependencies initialized[39m[38;5;3m +17ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mHealthModule dependencies initialized[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBullModule dependencies initialized[39m[38;5;3m +10ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mRedisModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBullModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCacheModule dependencies initialized[39m[38;5;3m +7ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBullModule dependencies initialized[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMetricsModule dependencies initialized[39m[38;5;3m +2ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mEventModule dependencies initialized[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPricingModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPaymentModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAdminModule dependencies initialized[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBookingModule dependencies initialized[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[WebSocketsController] [39m[32mBookingGateway subscribed to the "join_show" message[39m[38;5;3m +73ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +4ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/, GET} route[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/otp/request, POST} route[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAdminController {/admin}:[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/admin/theater, POST} route[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/admin/theaters, GET} route[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/admin/screen, POST} route[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/admin/event, POST} route[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/admin/show, POST} route[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/admin/analytics/overview, GET} route[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/admin/analytics/show/:showId, GET} route[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/admin/export/bookings, GET} route[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mEventController {/events}:[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/events, GET} route[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/events/:id, GET} route[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBookingController {/bookings}:[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bookings/lock, POST} route[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bookings/:id/cancel, POST} route[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bookings/confirm, POST} route[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPaymentController {/payment}:[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payment/create-order, POST} route[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payment/verify, POST} route[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPaymentWebhookController {/payment/webhook}:[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/payment/webhook, POST} route[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPricingController {/pricing}:[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/pricing/:showId, GET} route[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/health}:[39m[38;5;3m +1ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} route[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMetricsController {/metrics}:[39m[38;5;3m +0ms[39m
+backend-1  | [32m[Nest] 47  - [39m02/13/2026, 3:59:27 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/metrics, GET} route[39m[38;5;3m +0ms[39m
+backend-1  | prisma:warn Prisma failed to detect the libssl/openssl version to use, and may not work as expected. Defaulting to "openssl-1.1.x".
+backend-1  | Please manually install OpenSSL and try installing Prisma again.
+backend-1  | Error during bootstrap: PrismaClientInitializationError: Unable to require(`/app/node_modules/.prisma/client/libquery_engine-linux-musl.so.node`).
+backend-1  | The Prisma engines do not seem to be compatible with your system. Please refer to the documentation about Prisma's system requirements: https://pris.ly/d/system-requirements
+backend-1  | 
+backend-1  | Details: Error loading shared library libssl.so.1.1: No such file or directory (needed by /app/node_modules/.prisma/client/libquery_engine-linux-musl.so.node)
+backend-1  |     at Object.loadLibrary (/app/node_modules/@prisma/client/runtime/library.js:111:10243)
+backend-1  |     at async _r.loadEngine (/app/node_modules/@prisma/client/runtime/library.js:112:448)
+backend-1  |     at async _r.instantiateLibrary (/app/node_modules/@prisma/client/runtime/library.js:111:12599)
+backend-1  |     at async _r.start (/app/node_modules/@prisma/client/runtime/library.js:112:1976)
+backend-1  |     at async Proxy.onModuleInit (/app/dist/src/prisma/prisma.service.js:26:9)
+backend-1  |     at async Promise.all (index 0)
+backend-1  |     at async callModuleInitHook (/app/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+backend-1  |     at async NestApplication.callInitHook (/app/node_modules/@nestjs/core/nest-application-context.js:252:13)
+backend-1  |     at async NestApplication.init (/app/node_modules/@nestjs/core/nest-application.js:103:9)
+backend-1  |     at async NestApplication.listen (/app/node_modules/@nestjs/core/nest-application.js:175:13) {
+backend-1  |   clientVersion: '5.22.0',
+backend-1  |   errorCode: undefined
+backend-1  | }

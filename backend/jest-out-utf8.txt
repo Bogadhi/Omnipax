@@ -1,0 +1,127 @@
+﻿node.exe : FAIL test/tickets.e2e-spec.ts (6.278 s)
+At line:1 char:1
++ & "C:\Users\bogad\Downloads/node.exe" 
+"C:\Users\bogad\Downloads/node_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL test/ 
+   tickets.e2e-spec.ts (6.278 s):String) [], RemoteExc  
+  eption
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  ΓùÅ Tickets (e2e) ΓÇ║ /tickets/scan (POST) 
+Concurrency Tests ΓÇ║ should successfully scan exactly 
+once within 100ms and correctly block simultaneous 
+parallel calls via updateMany locks
+
+    Nest can't resolve dependencies of the 
+PaymentProcessorService (PrismaService, 
+StructuredLogger, BookingService, ?). Please make sure 
+that the argument TicketsService at index [3] is 
+available in the PaymentModule context.
+
+    Potential solutions:
+    - Is PaymentModule a valid NestJS module?
+    - If TicketsService is a provider, is it part of 
+the current PaymentModule?
+    - If TicketsService is exported from a separate 
+@Module, is that module imported within PaymentModule?
+      @Module({
+        imports: [ /* the Module containing 
+TicketsService */ ]
+      })
+
+    For more common dependency resolution issues, see: 
+https://docs.nestjs.com/faq/common-errors
+
+    [0m [90m 18 |[39m
+     [90m 19 |[39m   beforeAll([36masync[39m () 
+[33m=>[39m {
+    [31m[1m>[22m[39m[90m 20 |[39m     
+[36mconst[39m moduleFixture[33m:[39m 
+[33mTestingModule[39m [33m=[39m [36mawait[39m 
+[33mTest[39m[33m.[39mcreateTestingModule({
+     [90m    |[39m                                    
+      [31m[1m^[22m[39m
+     [90m 21 |[39m       imports[33m:[39m 
+[[33mAppModule[39m][33m,[39m
+     [90m 22 |[39m     
+})[33m.[39mcompile()[33m;[39m
+     [90m 23 |[39m[0m
+
+      at TestingInjector.lookupComponentInParentModules 
+(../../node_modules/@nestjs/core/injector/injector.js:29
+0:19)
+      at TestingInjector.resolveComponentWrapper (../../
+node_modules/@nestjs/testing/testing-injector.js:19:45)
+      at resolveParam (../../node_modules/@nestjs/core/i
+njector/injector.js:140:38)
+          at async Promise.all (index 3)
+      at TestingInjector.resolveConstructorParams (../..
+/node_modules/@nestjs/core/injector/injector.js:169:27)
+      at TestingInjector.loadInstance (../../node_module
+s/@nestjs/core/injector/injector.js:75:13)
+      at TestingInjector.loadProvider (../../node_module
+s/@nestjs/core/injector/injector.js:103:9)
+      at ../../node_modules/@nestjs/core/injector/instan
+ce-loader.js:56:13
+          at async Promise.all (index 4)
+      at 
+TestingInstanceLoader.createInstancesOfProviders (../../
+node_modules/@nestjs/core/injector/instance-loader.js:55
+:9)
+      at ../../node_modules/@nestjs/core/injector/instan
+ce-loader.js:40:13
+          at async Promise.all (index 17)
+      at TestingInstanceLoader.createInstances (../../no
+de_modules/@nestjs/core/injector/instance-loader.js:39:9
+)
+      at 
+TestingInstanceLoader.createInstancesOfDependencies (../
+../node_modules/@nestjs/core/injector/instance-loader.js
+:22:13)
+      at 
+TestingInstanceLoader.createInstancesOfDependencies (../
+../node_modules/@nestjs/testing/testing-instance-loader.
+js:9:9)
+      at 
+TestingModuleBuilder.createInstancesOfDependencies (../.
+./node_modules/@nestjs/testing/testing-module.builder.js
+:118:9)
+      at TestingModuleBuilder.compile (../../node_module
+s/@nestjs/testing/testing-module.builder.js:74:9)
+      at Object.<anonymous> (tickets.e2e-spec.ts:20:42)
+
+
+  ΓùÅ Test suite failed to run
+
+    TypeError: Cannot read properties of undefined 
+(reading '$disconnect')
+
+    [0m [90m 74 |[39m
+     [90m 75 |[39m   afterAll([36masync[39m () 
+[33m=>[39m {
+    [31m[1m>[22m[39m[90m 76 |[39m     
+[36mawait[39m 
+prisma[33m.[39m$disconnect()[33m;[39m
+     [90m    |[39m                  
+[31m[1m^[22m[39m
+     [90m 77 |[39m     [36mawait[39m 
+app[33m.[39mclose()[33m;[39m
+     [90m 78 |[39m   })[33m;[39m
+     [90m 79 |[39m[0m
+
+      at Object.<anonymous> (tickets.e2e-spec.ts:76:18)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        6.572 s, estimated 31 s
+Ran all test suites matching test/tickets.e2e-spec.ts.
+Jest did not exit one second after the test run has 
+completed.
+
+'This usually means that there are asynchronous 
+operations that weren't stopped in your tests. Consider 
+running Jest with `--detectOpenHandles` to troubleshoot 
+this issue.

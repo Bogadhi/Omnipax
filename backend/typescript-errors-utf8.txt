@@ -1,0 +1,6 @@
+﻿src/tickets/tickets.controller.ts(11,23): error TS2307: Cannot find module '../auth/roles.decorator' or its corresponding type declarations.
+src/tickets/tickets.controller.ts(12,28): error TS2307: Cannot find module '../auth/roles.guard' or its corresponding type declarations.
+src/tickets/tickets.controller.ts(13,30): error TS2307: Cannot find module '../auth/jwt-auth.guard' or its corresponding type declarations.
+src/tickets/tickets.controller.ts(52,32): error TS2339: Property 'scanTicket' does not exist on type 'TicketsService'.
+src/tickets/tickets.controller.ts(70,32): error TS2551: Property 'getTicketsForBooking' does not exist on type 'TicketsService'. Did you mean 'generateTicketsForBooking'?
+src/tickets/tickets.service.ts(54,13): error TS2353: Object literal may only specify known properties, and 'bookingId_seatNumber' does not exist in type 'TicketWhereUniqueInput'.

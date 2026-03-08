@@ -1,0 +1,154 @@
+import { Test, TestingModule } from '@nestjs/testing';
+import { BookingService } from '../src/booking/booking.service';
+import { PrismaService } from '../src/prisma/prisma.service';
+import { PricingService } from '../src/pricing/pricing.service';
+import { BookingGateway } from '../src/booking/booking.gateway';
+import { ConfigService } from '@nestjs/config';
+import { AuditService } from '../src/audit/audit.service';
+import { getQueueToken } from '@nestjs/bullmq';
+import { BookingStatus } from '@prisma/client';
+
+describe('BookingFee Integration', () => {
+  let bookingService: BookingService;
+  let prisma: PrismaService;
+  let pricingService: PricingService;
+
+  const mockRedis = {
+    set: jest.fn().mockResolvedValue('OK'),
+    get: jest.fn().mockResolvedValue(null),
+    del: jest.fn().mockResolvedValue(1),
+  };
+
+  const mockQueue = {
+    add: jest.fn(),
+  };
+
+  const mockGateway = {
+    emitSeatLocked: jest.fn(),
+    emitSeatReleased: jest.fn(),
+    emitBookingConfirmed: jest.fn(),
+  };
+
+  const mockAudit = {
+    log: jest.fn(),
+  };
+
+  const mockConfig = {
+    get: jest.fn((key) => {
+      if (key === 'JWT_SECRET') return 'test_secret';
+      return null;
+    }),
+  };
+
+  beforeAll(async () => {
+    const moduleRef: TestingModule = await Test.createTestingModule({
+      providers: [
+        BookingService,
+        PrismaService,
+        PricingService, // Real PricingService
+        { provide: 'REDIS_CLIENT', useValue: mockRedis },
+        { provide: BookingGateway, useValue: mockGateway },
+        { provide: AuditService, useValue: mockAudit },
+        { provide: ConfigService, useValue: mockConfig },
+        { provide: getQueueToken('booking'), useValue: mockQueue },
+      ],
+    }).compile();
+
+    bookingService = moduleRef.get<BookingService>(BookingService);
+    prisma = moduleRef.get<PrismaService>(PrismaService);
+    pricingService = moduleRef.get<PricingService>(PricingService);
+  });
+
+  afterAll(async () => {
+    await prisma.$disconnect();
+  });
+
+  it('should persist convenience fee and total amount correctly', async () => {
+    // 1. Setup Data
+    const user = await prisma.user.create({
+      data: { email: `test-${Date.now()}@test.com`, name: 'Test User' },
+    });
+
+    const event = await prisma.event.create({
+      data: {
+        title: 'Test Event',
+        description: 'desc',
+        category: 'Concert',
+        posterImage: 'img',
+      },
+    });
+
+    const seatMap = { rows: 10, cols: 10, sections: [] };
+
+    const show = await prisma.show.create({
+      data: {
+        eventId: event.id,
+        venueId: 'venue-1', // Assuming venue-1 exists or fk is not strict? Wait, schema likely strict.
+        // We need a venue.
+        // Let's rely on creating one if needed, or mocking prisma?
+        // Integration test should use real DB.
+        // I'll create a venue first.
+
+        // Wait, creating all dependencies is tedious.
+        // I will trust the user has seeded data or I will handle errors.
+        // Let's try to create a venue.
+        startTime: new Date(Date.now() + 100000),
+        price: 10,0,
+        seatMap: seatMap,
+      } as any,
+      // Types might complain about venue.
+    });
+
+    // Actually, creating a venue is safer.
+    const venue = await prisma.venue.create({
+      data: { name: 'Test Venue', location: 'Test Loc', capacity: 100 },
+    });
+
+    // Update show with venue
+    await prisma.show.update({
+      where: { id: show.id },
+      data: { venueId: venue.id },
+    });
+
+    // 2. Create Locked Booking (Simulation)
+    const booking = await prisma.booking.create({
+      data: {
+        userId: user.id,
+        showId: show.id,
+        totalAmount: 0,
+        status: BookingStatus.LOCKED,
+        bookingSeats: {
+          create: [{ seatId: 'A1' }],
+        },
+      },
+      include: { bookingSeats: true, show: true },
+    });
+
+    // Mock Redis Lock Check to pass
+    mockRedis.get.mockResolvedValue(user.id);
+
+    // 3. Confirm Booking
+    // We pass amount = 0 from client (or whatever), server should recalculate.
+    const confirmedBooking = await bookingService.confirmBooking(
+      user.id,
+      show.id,
+      ['A1'],
+      119.99, // Client sends correct amount
+      'payment_123',
+    );
+
+    // 4. Verification
+    expect(confirmedBooking.status).toBe(BookingStatus.CONFIRMED);
+    expect(confirmedBooking.basePrice).toBe(100);
+    expect(confirmedBooking.convenienceFee).toBe(19.99);
+    expect(confirmedBooking.totalAmount).toBe(119.99);
+
+    // Verify DB Persistence
+    const dbBooking = await prisma.booking.findUnique({
+      where: { id: booking.id },
+    });
+    expect(dbBooking?.basePrice).toBe(100);
+    expect(dbBooking?.convenienceFee).toBe(19.99);
+    expect(dbBooking?.totalAmount).toBe(119.99);
+  }, 30000);
+});

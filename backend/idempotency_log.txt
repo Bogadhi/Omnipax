@@ -1,0 +1,32 @@
+  console.log
+    OTP for idem@test.com: 494009
+
+      at AuthService.requestOtp (../src/auth/auth.service.ts:31:13)
+
+FAIL test/idempotency.e2e-spec.ts
+  Idempotency (E2E)
+    × should return cached response for duplicate request (461 ms)
+
+  ● Idempotency (E2E) › should return cached response for duplicate request
+
+    TypeError: Cannot read properties of undefined (reading 'id')
+
+    [0m [90m 77 |[39m     
+     [90m 78 |[39m     [36mconst[39m seats [33m=[39m [36mawait[39m bookingService[33m.[39mgetSeats(showId)[33m;[39m
+    [31m[1m>[22m[39m[90m 79 |[39m     [36mconst[39m seatIdToLock [33m=[39m seats[[35m0[39m][33m.[39mid[33m;[39m
+     [90m    |[39m                                   [31m[1m^[22m[39m
+     [90m 80 |[39m     [36mconst[39m actualPayload [33m=[39m { seatIds[33m:[39m [seatIdToLock] }[33m;[39m
+     [90m 81 |[39m
+     [90m 82 |[39m     [90m// 1st Request[39m[0m
+
+      at Object.<anonymous> (idempotency.e2e-spec.ts:79:35)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        3.991 s, estimated 10 s
+Ran all test suites matching test/idempotency.e2e-spec.ts.
+Jest did not exit one second after the test run has completed.
+
+'This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
+Terminate batch job (Y/N)? 

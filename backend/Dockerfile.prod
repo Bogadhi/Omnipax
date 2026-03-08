@@ -1,0 +1,49 @@
+# Stage 1: Builder
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Install dependencies (including devDependencies for build)
+COPY package*.json ./
+COPY prisma ./prisma/
+
+# Install dependencies
+RUN npm ci
+
+# Copy source code
+COPY . .
+
+# Generate Prisma Client
+RUN npx prisma generate
+
+# Build the application
+RUN npm run build
+
+# Stage 2: Production
+FROM node:20-alpine AS production
+
+WORKDIR /app
+
+# Set NODE_ENV to production
+ENV NODE_ENV=production
+
+# Install only production dependencies
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+# Copy built assets and prisma schema from builder
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
+COPY --from=builder /app/prisma ./prisma
+
+# Create non-root user for security
+RUN addgroup -g 1001 nodejs && adduser -S -u 1001 -G nodejs nestjs
+USER nestjs
+
+# Expose API port
+EXPOSE 5001
+
+# Start command (migration + server)
+# Note: In docker-compose, we can override this if needed, but this is a good default
+CMD ["sh", "-c", "npx prisma migrate deploy && node dist/main.js"]

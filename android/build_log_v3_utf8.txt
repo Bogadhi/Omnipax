@@ -1,0 +1,85 @@
+﻿Calculating task graph as configuration cache cannot be reused because file 'app\build.gradle' has changed.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:clean
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugResValues
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:generateDebugResources
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:writeDebugAppMetadata
+> Task :app:desugarDebugFileDependencies
+> Task :app:generateDebugBuildConfig
+> Task :app:validateSigningDebug
+> Task :app:extractDeepLinksDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:packageDebugResources
+> Task :app:parseDebugLocalResources
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeLibDexDebug
+> Task :app:mergeDebugAssets
+> Task :app:checkDebugAarMetadata
+> Task :app:compressDebugAssets
+> Task :app:mapDebugSourceSetPaths
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+
+> Task :app:processDebugMainManifest
+package="com.ticketbooking" found in source AndroidManifest.xml: C:\Users\bogad\ticket booking project\android\app\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.ticketbooking" from the source AndroidManifest.xml: C:\Users\bogad\ticket booking project\android\app\src\main\AndroidManifest.xml.
+
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugResources
+> Task :app:processDebugResources
+> Task :app:mergeExtDexDebug
+
+The Daemon will expire after the build after running out of JVM heap space.
+The project memory settings are likely not configured or are configured to an insufficient value.
+The daemon will restart for the next build, which may increase subsequent build times.
+These settings can be adjusted by setting 'org.gradle.jvmargs' in 'gradle.properties'.
+The currently configured max heap space is '512 MiB' and the configured max metaspace is '384 MiB'.
+For more information on how to set these values, please refer to https://docs.gradle.org/8.5/userguide/build_environment.html#sec:configuring_jvm_memory in the Gradle documentation.
+To disable this warning, set 'org.gradle.daemon.performance.disable-logging=true'.
+Daemon will be stopped at the end of the build after running out of JVM heap space
+
+> Task :app:mergeExtDexDebug FAILED
+./gradlew.bat : ERROR: D8: java.lang.OutOfMemoryError: Java heap space
+At line:1 char:1
++ ./gradlew.bat clean :app:assembleDebug > build_log_v2.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ERROR: D8: java...Java heap space:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+> Task :app:kaptGenerateStubsDebugKotlin
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:mergeExtDexDebug'.
+> Could not resolve all files for configuration ':app:debugRuntimeClasspath'.
+   > Failed to transform material-icons-extended-release.aar 
+(androidx.compose.material:material-icons-extended-android:1.6.1) to match attributes {artifactType=android-dex, 
+asm-transformed-variant=NONE, dexing-enable-desugaring=true, dexing-enable-jacoco-instrumentation=false, 
+dexing-is-debuggable=true, dexing-min-sdk=24, org.gradle.category=library, org.gradle.status=release, 
+org.gradle.usage=java-runtime, org.jetbrains.kotlin.platform.type=androidJvm}.
+      > Execution failed for DexingNoClasspathTransform: C:\Users\bogad\.gradle\caches\transforms-3\d63c31df01254b51bb2
+2123546024134\transformed\jetified-material-icons-extended-release-runtime.jar.
+         > Error while dexing.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m 7s
+28 actionable tasks: 28 executed
+Configuration cache entry stored.

@@ -1,0 +1,144 @@
+﻿
+> backend@0.0.1 test:e2e
+> jest --config ./test/jest-e2e.json --runInBand test/onboarding.e2e-spec.ts
+
+node.exe : FAIL test/onboarding.e2e-spec.ts (27.384 s)
+At line:1 char:1
++ & "C:\Users\bogad\Downloads/node.exe" 
+"C:\Users\bogad\Downloads/node_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL test/ 
+   onboa...c.ts (27.384 s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Theater Onboarding (E2E)
+    ΓêÜ POST /theatre/apply - should submit application 
+successfully (460 ms)
+    ΓêÜ POST /theatre/apply - should block duplicate 
+pending application (891 ms)
+    ├ù PATCH 
+/superadmin/theatre-applications/:id/review (REJECT) - 
+should reject application (44 ms)
+    ├ù PATCH 
+/superadmin/theatre-applications/:id/review (APPROVE) - 
+should create full tenant ecosystem (39 ms)
+
+  ΓùÅ Theater Onboarding (E2E) ΓÇ║ PATCH 
+/superadmin/theatre-applications/:id/review (REJECT) - 
+should reject application
+
+    PrismaClientValidationError: 
+    Invalid `any).create()` invocation in
+    C:\Users\bogad\ticket booking 
+project\backend\test\onboarding.e2e-spec.ts:95:64
+
+      92 });
+      93 
+      94 it('PATCH 
+/superadmin/theatre-applications/:id/review (REJECT) - 
+should reject application', async () => {
+    ΓåÆ 95   const appRecord = await 
+(prisma.theatreApplication as any).create({
+             data: {
+               theatreName: "Onboarding Theater C",
+               theaterName: "Onboarding Theater C",
+               ~~~~~~~~~~~
+               tenantSlug: "onboarding-theater-c",
+               ownerName: "Owner C",
+               email: "onboarding-c@example.com",
+               phone: "+917777777777",
+               address: "789 Cave St",
+               city: "Delhi",
+               state: "Delhi",
+           ?   id?: String,
+           ?   gstNumber?: String | Null,
+           ?   status?: ApplicationStatus,
+           ?   reviewNotes?: String | Null,
+           ?   reviewedAt?: DateTime | Null,
+           ?   createdAt?: DateTime,
+           ?   updatedAt?: DateTime,
+           ?   reviewedBy?: 
+UserCreateNestedOneWithoutReviewedApplicationsInput,
+           ?   documents?: ApplicationDocumentCreateNest
+edManyWithoutApplicationInput
+             }
+           })
+
+    Unknown argument `theaterName`. Did you mean 
+`theatreName`? Available options are marked with ?.
+
+    [0m [90m 93 |[39m
+     [90m 94 |[39m   it([32m'PATCH 
+/superadmin/theatre-applications/:id/review (REJECT) - 
+should reject application'[39m[33m,[39m 
+[36masync[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m 95 |[39m     
+[36mconst[39m appRecord [33m=[39m [36mawait[39m 
+(prisma[33m.[39mtheatreApplication [36mas[39m 
+any)[33m.[39mcreate({
+     [90m    |[39m                       
+[31m[1m^[22m[39m
+     [90m 96 |[39m       data[33m:[39m {
+     [90m 97 |[39m         theatreName[33m:[39m 
+[32m'Onboarding Theater C'[39m[33m,[39m
+     [90m 98 |[39m         theaterName[33m:[39m 
+[32m'Onboarding Theater C'[39m[33m,[39m [90m// 
+Handle mapping if needed[39m[0m
+
+      at wn (../../node_modules/@prisma/client/runtime/l
+ibrary.js:29:1363)
+      at $n.handleRequestError (../../node_modules/@pris
+ma/client/runtime/library.js:121:6958)
+      at $n.handleAndLogRequestError (../../node_modules
+/@prisma/client/runtime/library.js:121:6623)
+      at $n.request (../../node_modules/@prisma/client/r
+untime/library.js:121:6307)
+      at l (../../node_modules/@prisma/client/runtime/li
+brary.js:130:9633)
+      at Object.<anonymous> 
+(onboarding.e2e-spec.ts:95:23)
+
+  ΓùÅ Theater Onboarding (E2E) ΓÇ║ PATCH 
+/superadmin/theatre-applications/:id/review (APPROVE) - 
+should create full tenant ecosystem
+
+    expect(received).toBe(expected) // Object.is 
+equality
+
+    Expected: 200
+    Received: 400
+
+    [0m [90m 141 |[39m       })[33m;[39m
+     [90m 142 |[39m
+    [31m[1m>[22m[39m[90m 143 |[39m     expect(resp
+onse[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33
+m;[39m
+     [90m     |[39m                             
+[31m[1m^[22m[39m
+     [90m 144 |[39m     expect(response[33m.[39mbody
+[33m.[39mstatus)[33m.[39mtoBe([32m'APPROVED'[39m)
+[33m;[39m
+     [90m 145 |[39m
+     [90m 146 |[39m     [36mconst[39m tenant 
+[33m=[39m [36mawait[39m 
+prisma[33m.[39mtenant[33m.[39mfindUnique({ 
+where[33m:[39m { slug[33m:[39m 
+[32m'onboarding-theater-d'[39m } })[33m;[39m[0m
+
+      at Object.<anonymous> 
+(onboarding.e2e-spec.ts:143:29)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 passed, 4 total
+Snapshots:   0 total
+Time:        27.691 s
+Ran all test suites matching 
+test/onboarding.e2e-spec.ts.
+Jest did not exit one second after the test run has 
+completed.
+
+'This usually means that there are asynchronous 
+operations that weren't stopped in your tests. Consider 
+running Jest with `--detectOpenHandles` to troubleshoot 
+this issue.

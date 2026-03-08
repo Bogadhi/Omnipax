@@ -1,0 +1,6 @@
+[32m[Nest] 34252  - [39m13/02/2026, 1:33:55 pm [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 34252  - [39m13/02/2026, 1:33:55 pm [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +61ms[39m
+[32m[Nest] 34252  - [39m13/02/2026, 1:33:55 pm [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +4ms[39m
+[32m[Nest] 34252  - [39m13/02/2026, 1:33:55 pm [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mNotificationModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 34252  - [39m13/02/2026, 1:33:55 pm [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +2ms[39m
+[32m[Nest] 34252  - [39m13/02/2026, 1:33:55 pm [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m

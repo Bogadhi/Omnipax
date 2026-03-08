@@ -1,0 +1,68 @@
+﻿node.exe : FAIL test/tickets.e2e-spec.ts (10.442 s)
+At line:1 char:1
++ & "C:\Users\bogad\Downloads/node.exe" 
+"C:\Users\bogad\Downloads/node_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL test/ 
+   tickets.e2e-spec.ts (10.442 s):String) [], RemoteEx  
+  ception
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Tickets (e2e)
+    /tickets/scan (POST) Concurrency Tests
+      ├ù should successfully scan exactly once within 
+100ms and correctly block simultaneous parallel calls 
+via updateMany locks (2 ms)
+
+  ΓùÅ Tickets (e2e) ΓÇ║ /tickets/scan (POST) 
+Concurrency Tests ΓÇ║ should successfully scan exactly 
+once within 100ms and correctly block simultaneous 
+parallel calls via updateMany locks
+
+    PrismaClientKnownRequestError: 
+    Invalid `prisma.user.create()` invocation in
+    C:\Users\bogad\ticket booking 
+project\backend\test\tickets.e2e-spec.ts:37:23
+
+      34 const mockBookingId = crypto.randomUUID();
+      35 
+      36 // Create base relations
+    ΓåÆ 37 await prisma.user.create(
+    Foreign key constraint violated: 
+`User_tenantId_fkey (index)`
+
+    [0m [90m 35 |[39m     
+     [90m 36 |[39m     [90m// Create base 
+relations[39m
+    [31m[1m>[22m[39m[90m 37 |[39m     
+[36mawait[39m prisma[33m.[39muser[33m.[39mcreate({
+     [90m    |[39m     [31m[1m^[22m[39m
+     [90m 38 |[39m       data[33m:[39m {
+     [90m 39 |[39m         id[33m:[39m 
+testUserId[33m,[39m
+     [90m 40 |[39m         email[33m:[39m [32m`test
+-staff-${Date.now()}@example.com`[39m[33m,[39m[0m
+
+      at $n.handleRequestError (../../node_modules/@pris
+ma/client/runtime/library.js:121:7315)
+      at $n.handleAndLogRequestError (../../node_modules
+/@prisma/client/runtime/library.js:121:6623)
+      at $n.request (../../node_modules/@prisma/client/r
+untime/library.js:121:6307)
+      at l (../../node_modules/@prisma/client/runtime/li
+brary.js:130:9633)
+      at Object.<anonymous> (tickets.e2e-spec.ts:37:5)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        10.719 s, estimated 13 s
+Ran all test suites matching test/tickets.e2e-spec.ts.
+Jest did not exit one second after the test run has 
+completed.
+
+'This usually means that there are asynchronous 
+operations that weren't stopped in your tests. Consider 
+running Jest with `--detectOpenHandles` to troubleshoot 
+this issue.

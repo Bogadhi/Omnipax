@@ -1,0 +1,44 @@
+  console.log
+    OTP for idem@test.com: 547561
+
+      at AuthService.requestOtp (../src/auth/auth.service.ts:31:13)
+
+  console.log
+    RES1 STATUS: 409 BODY: {
+      message: 'Show not found or inactive',
+      error: 'Conflict',
+      statusCode: 409
+    }
+
+      at Object.<anonymous> (idempotency.e2e-spec.ts:99:13)
+
+FAIL test/idempotency.e2e-spec.ts (6.14 s)
+  Idempotency (E2E)
+    × should return cached response for duplicate request (967 ms)
+
+  ● Idempotency (E2E) › should return cached response for duplicate request
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 201
+    Received: 409
+
+    [0m [90m  98 |[39m
+     [90m  99 |[39m     console[33m.[39mlog([32m'RES1 STATUS:'[39m[33m,[39m res1[33m.[39mstatus[33m,[39m [32m'BODY:'[39m[33m,[39m res1[33m.[39mbody)[33m;[39m
+    [31m[1m>[22m[39m[90m 100 |[39m     expect(res1[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[39m
+     [90m     |[39m                         [31m[1m^[22m[39m
+     [90m 101 |[39m
+     [90m 102 |[39m     [90m// 2nd Request (Duplicate)[39m
+     [90m 103 |[39m     [36mconst[39m res2 [33m=[39m [36mawait[39m request(app[33m.[39mgetHttpServer())[0m
+
+      at Object.<anonymous> (idempotency.e2e-spec.ts:100:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        6.327 s
+Ran all test suites matching test/idempotency.e2e-spec.ts.
+Jest did not exit one second after the test run has completed.
+
+'This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
+Terminate batch job (Y/N)? 

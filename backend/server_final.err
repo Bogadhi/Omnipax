@@ -1,0 +1,38 @@
+[31m[Nest] 34252  - [39m13/02/2026, 1:33:55 pm [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39mUnknownDependenciesException [Error]: Nest can't resolve dependencies of the ThrottlerGuard (THROTTLER:MODULE_OPTIONS, Symbol(ThrottlerStorage), ?). Please make sure that the argument Reflector at index [2] is available in the AppModule context.
+
+Potential solutions:
+- Is AppModule a valid NestJS module?
+- If Reflector is a provider, is it part of the current AppModule?
+- If Reflector is exported from a separate @Module, is that module imported within AppModule?
+  @Module({
+    imports: [ /* the Module containing Reflector */ ]
+  })
+
+For more common dependency resolution issues, see: https://docs.nestjs.com/faq/common-errors
+    at Injector.lookupComponentInParentModules [90m(C:\Users\bogad\.gemini\antigravity\scratch\ticket booking project\backend\[39mnode_modules\[4m@nestjs\core[24m\injector\injector.js:290:19[90m)[39m
+    at async resolveParam [90m(C:\Users\bogad\.gemini\antigravity\scratch\ticket booking project\backend\[39mnode_modules\[4m@nestjs\core[24m\injector\injector.js:140:38[90m)[39m
+    at async Promise.all (index 2)
+    at async Injector.resolveConstructorParams [90m(C:\Users\bogad\.gemini\antigravity\scratch\ticket booking project\backend\[39mnode_modules\[4m@nestjs\core[24m\injector\injector.js:169:27[90m)[39m
+    at async Injector.loadInstance [90m(C:\Users\bogad\.gemini\antigravity\scratch\ticket booking project\backend\[39mnode_modules\[4m@nestjs\core[24m\injector\injector.js:75:13[90m)[39m
+    at async Injector.loadProvider [90m(C:\Users\bogad\.gemini\antigravity\scratch\ticket booking project\backend\[39mnode_modules\[4m@nestjs\core[24m\injector\injector.js:103:9[90m)[39m
+    at async [90mC:\Users\bogad\.gemini\antigravity\scratch\ticket booking project\backend\[39mnode_modules\[4m@nestjs\core[24m\injector\instance-loader.js:56:13
+    at async Promise.all (index 5)
+    at async InstanceLoader.createInstancesOfProviders [90m(C:\Users\bogad\.gemini\antigravity\scratch\ticket booking project\backend\[39mnode_modules\[4m@nestjs\core[24m\injector\instance-loader.js:55:9[90m)[39m
+    at async [90mC:\Users\bogad\.gemini\antigravity\scratch\ticket booking project\backend\[39mnode_modules\[4m@nestjs\core[24m\injector\instance-loader.js:40:13 {
+  type: [32m'ThrottlerGuard'[39m,
+  context: {
+    index: [33m2[39m,
+    dependencies: [
+      [32m'THROTTLER:MODULE_OPTIONS'[39m,
+      [32mSymbol(ThrottlerStorage)[39m,
+      [36m[class Reflector][39m
+    ],
+    name: [36m[class Reflector][39m
+  },
+  metadata: {
+    id: [32m'69480a34fcfb39d710426'[39m
+  },
+  moduleRef: {
+    id: [32m'aec27811d01157131c218'[39m
+  }
+}

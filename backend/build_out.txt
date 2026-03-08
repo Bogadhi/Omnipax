@@ -1,0 +1,6 @@
+﻿src/pricing/pricing.service.spec.ts(28,27): error TS2339: Property 'calculateConvenienceFee' does not exist on type 'PricingService'.
+src/pricing/pricing.service.spec.ts(33,22): error TS2339: Property 'calculateConvenienceFee' does not exist on type 'PricingService'.
+src/pricing/pricing.service.spec.ts(34,22): error TS2339: Property 'calculateConvenienceFee' does not exist on type 'PricingService'.
+src/pricing/pricing.service.spec.ts(35,22): error TS2339: Property 'calculateConvenienceFee' does not exist on type 'PricingService'.
+src/scripts/verify-admin-flow.ts(78,45): error TS2554: Expected 4 arguments, but got 3.
+src/scripts/verify-admin-monitor.ts(137,26): error TS2554: Expected 4 arguments, but got 3.

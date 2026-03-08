@@ -1,0 +1,18 @@
+﻿Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": PostgreSQL database "ticket_booking", schema "public" at "127.0.0.1:5432"
+
+node.exe : Error: P1001: Can't reach database server at 
+`127.0.0.1:5432`
+At line:1 char:1
++ & "C:\Users\bogad\Downloads/node.exe" 
+"C:\Users\bogad\Downloads/node_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error: P10 
+   01: C...127.0.0.1:5432`:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Please make sure your database server is running at 
+`127.0.0.1:5432`.

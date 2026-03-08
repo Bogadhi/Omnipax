@@ -1,0 +1,85 @@
+﻿Calculating task graph as no cached configuration is available for tasks: clean :app:assembleDebug
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:clean
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugResValues
+> Task :app:desugarDebugFileDependencies
+> Task :app:generateDebugResources
+> Task :app:writeDebugAppMetadata
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugBuildConfig
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:checkDebugAarMetadata
+> Task :app:mergeDebugAssets
+> Task :app:validateSigningDebug
+> Task :app:javaPreCompileDebug
+> Task :app:compressDebugAssets
+> Task :app:packageDebugResources
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeLibDexDebug
+> Task :app:parseDebugLocalResources
+
+> Task :app:processDebugMainManifest
+package="com.ticketbooking" found in source AndroidManifest.xml: C:\Users\bogad\ticket booking project\android\app\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.ticketbooking" from the source AndroidManifest.xml: C:\Users\bogad\ticket booking project\android\app\src\main\AndroidManifest.xml.
+
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugResources
+> Task :app:processDebugResources
+> Task :app:mergeExtDexDebug
+> Task :app:kaptGenerateStubsDebugKotlin
+> Task :app:kaptDebugKotlin
+
+> Task :app:compileDebugKotlin
+./gradlew.bat : e: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/boo
+king/CheckoutScreen.kt:11:47 Unresolved reference: ConfirmationNumber
+At line:1 char:1
++ ./gradlew.bat clean :app:assembleDebug > build_log.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (e: file:///C:/U...firmationNumber:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+e: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/booking/CheckoutScr
+een.kt:12:47 Unresolved reference: CurrencyRupee
+e: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/booking/CheckoutScr
+een.kt:13:47 Unresolved reference: SecurityUpdateGood
+e: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/booking/CheckoutScr
+een.kt:108:39 Unresolved reference: ConfirmationNumber
+e: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/booking/CheckoutScr
+een.kt:203:56 The API of this layout is experimental and is likely to change in the future.
+e: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/booking/CheckoutScr
+een.kt:222:35 Unresolved reference: SecurityUpdateGood
+e: file:///C:/Users/bogad/ticket%20booking%20project/android/app/src/main/java/com/ticketbooking/ui/booking/CheckoutScr
+een.kt:275:39 Unresolved reference: CurrencyRupee
+
+> Task :app:compileDebugKotlin FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugKotlin'.
+> A failure occurred while executing 
+org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 41s
+30 actionable tasks: 30 executed
+Configuration cache entry stored.

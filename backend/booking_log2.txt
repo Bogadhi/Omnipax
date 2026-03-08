@@ -1,0 +1,118 @@
+﻿  console.log
+    OTP for buyer@test.com: 340947
+
+      at AuthService.requestOtp (../src/auth/auth.service.ts:31:13)
+
+  console.log
+    --- PaymentController.createOrder Entry ---
+
+      at PaymentController.createOrder (../src/payment/payment.controller.ts:22:13)
+
+  console.log
+    BookingId: 1e0f1485-9df4-4e2e-8b4c-1deb2c2a8b88
+
+      at PaymentController.createOrder (../src/payment/payment.controller.ts:23:13)
+
+  console.log
+    UserId: bf6b1bac-c1f0-4e98-9248-a9696d8d4517
+
+      at PaymentController.createOrder (../src/payment/payment.controller.ts:24:13)
+
+  console.log
+    OTP for buyer@test.com: 907618
+
+      at AuthService.requestOtp (../src/auth/auth.service.ts:31:13)
+
+  console.log
+    OTP for other@test.com: 802265
+
+      at AuthService.requestOtp (../src/auth/auth.service.ts:31:13)
+
+  console.log
+    OTP for buyer@test.com: 627027
+
+      at AuthService.requestOtp (../src/auth/auth.service.ts:31:13)
+
+  console.log
+    --- PaymentController.createOrder Entry ---
+
+      at PaymentController.createOrder (../src/payment/payment.controller.ts:22:13)
+
+  console.log
+    BookingId: 95c26c96-a894-4a3f-93af-3be27584d3bd
+
+      at PaymentController.createOrder (../src/payment/payment.controller.ts:23:13)
+
+  console.log
+    UserId: 82f1ec66-1d0a-4d49-8061-d3e736286572
+
+      at PaymentController.createOrder (../src/payment/payment.controller.ts:24:13)
+
+  console.log
+    --- PaymentController.createOrder Entry ---
+
+      at PaymentController.createOrder (../src/payment/payment.controller.ts:22:13)
+
+  console.log
+    BookingId: 95c26c96-a894-4a3f-93af-3be27584d3bd
+
+      at PaymentController.createOrder (../src/payment/payment.controller.ts:23:13)
+
+  console.log
+    UserId: 82f1ec66-1d0a-4d49-8061-d3e736286572
+
+      at PaymentController.createOrder (../src/payment/payment.controller.ts:24:13)
+
+node.exe : FAIL test/booking.e2e-spec.ts (6.856 s)
+At line:1 char:1
++ & "C:\Users\bogad\Downloads/node.exe" 
+"C:\Users\bogad\Downloads/node_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL test/ 
+   booking.e2e-spec.ts (6.856 s):String) [], RemoteExc  
+  eption
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Booking Integrity (E2E)
+    ├ù should successfully lock, create order, and 
+confirm a booking (736 ms)
+    ΓêÜ should fail to lock an already locked seat 
+(1110 ms)
+    ΓêÜ should fail to create order without locking 
+first (996 ms)
+
+  ΓùÅ Booking Integrity (E2E) ΓÇ║ should successfully 
+lock, create order, and confirm a booking
+
+    expect(received).toBe(expected) // Object.is 
+equality
+
+    Expected: "pay_1e11c339-3"
+    Received: null
+
+    [0m [90m 150 |[39m     })[33m;[39m
+     [90m 151 |[39m     expect(confirmedBooking[33m?
+[39m[33m.[39mstatus)[33m.[39mtoBe([32m'CONFIRMED'[
+39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 152 |[39m     expect(conf
+irmedBooking[33m?[39m[33m.[39mpaymentId)[33m.[39mt
+oBe(razorpayPaymentId)[33m;[39m
+     [90m     |[39m                                   
+      [31m[1m^[22m[39m
+     [90m 153 |[39m   })[33m;[39m
+     [90m 154 |[39m
+     [90m 155 |[39m   it([32m'should fail to lock an 
+already locked seat'[39m[33m,[39m [36masync[39m () 
+[33m=>[39m {[0m
+
+      at Object.<anonymous> (booking.e2e-spec.ts:152:41)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        7.043 s, estimated 10 s
+Ran all test suites matching test/booking.e2e-spec.ts.
+Force exiting Jest: Have you considered using 
+`--detectOpenHandles` to detect async operations that 
+kept running after all tests finished?

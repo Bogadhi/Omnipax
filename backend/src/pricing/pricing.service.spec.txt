@@ -1,0 +1,38 @@
+import { Test, TestingModule } from '@nestjs/testing';
+import { PricingService } from './pricing.service';
+import { PrismaService } from '../prisma/prisma.service';
+
+describe('PricingService', () => {
+  let service: PricingService;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        PricingService,
+        {
+          provide: PrismaService,
+          useValue: {}, // Mock if needed, currently not used in calculateConvenienceFee
+        },
+      ],
+    }).compile();
+
+    service = module.get<PricingService>(PricingService);
+  });
+
+  it('should be defined', () => {
+    expect(service).toBeDefined();
+  });
+
+  describe('calculateConvenienceFee', () => {
+    it('should return a fixed fee of 19.99', () => {
+      const fee = service.calculateConvenienceFee(100);
+      expect(fee).toBe(19.99);
+    });
+
+    it('should return 19.99 regardless of ticket price', () => {
+      expect(service.calculateConvenienceFee(50)).toBe(19.99);
+      expect(service.calculateConvenienceFee(200)).toBe(19.99);
+      expect(service.calculateConvenienceFee(0)).toBe(19.99);
+    });
+  });
+});

@@ -1,0 +1,144 @@
+﻿
+> backend@0.0.1 test:e2e
+> jest --config ./test/jest-e2e.json --runInBand test/onboarding.e2e-spec.ts
+
+node.exe : FAIL test/onboarding.e2e-spec.ts
+At line:1 char:1
++ & "C:\Users\bogad\Downloads/node.exe" 
+"C:\Users\bogad\Downloads/node_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL test/onbo 
+   arding.e2e-spec.ts:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  ΓùÅ Test suite failed to run
+
+    [96mtest/onboarding.e2e-spec.ts[0m:[93m44[0m:[93m28
+[0m - [91merror[0m[90m TS2349: [0mThis expression is 
+not callable.
+      Type '{ default: SuperTestStatic; Test: typeof Test; 
+agent: typeof TestAgent & ((app?: App | undefined, 
+options?: AgentOptions | undefined) => TestAgent<...>); }' 
+has no call signatures.
+
+    [7m44[0m     const response = await 
+request(app.getHttpServer())
+    [7m  [0m [91m                           ~~~~~~~[0m
+
+      
+[96mtest/onboarding.e2e-spec.ts[0m:[93m3[0m:[93m1[0m
+        [7m3[0m import * as request from 'supertest';
+        [7m [0m 
+[96m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+        Type originates at this import. A namespace-style 
+import cannot be called or constructed, and will cause a 
+failure at runtime. Consider using a default import or 
+import require here instead.
+    [96mtest/onboarding.e2e-spec.ts[0m:[93m67[0m:[93m11
+[0m - [91merror[0m[90m TS2349: [0mThis expression is 
+not callable.
+      Type '{ default: SuperTestStatic; Test: typeof Test; 
+agent: typeof TestAgent & ((app?: App | undefined, 
+options?: AgentOptions | undefined) => TestAgent<...>); }' 
+has no call signatures.
+
+    [7m67[0m     await request(app.getHttpServer())
+    [7m  [0m [91m          ~~~~~~~[0m
+
+      
+[96mtest/onboarding.e2e-spec.ts[0m:[93m3[0m:[93m1[0m
+        [7m3[0m import * as request from 'supertest';
+        [7m [0m 
+[96m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+        Type originates at this import. A namespace-style 
+import cannot be called or constructed, and will cause a 
+failure at runtime. Consider using a default import or 
+import require here instead.
+    [96mtest/onboarding.e2e-spec.ts[0m:[93m79[0m:[93m37
+[0m - [91merror[0m[90m TS2349: [0mThis expression is 
+not callable.
+      Type '{ default: SuperTestStatic; Test: typeof Test; 
+agent: typeof TestAgent & ((app?: App | undefined, 
+options?: AgentOptions | undefined) => TestAgent<...>); }' 
+has no call signatures.
+
+    [7m79[0m     const duplicateResponse = await 
+request(app.getHttpServer())
+    [7m  [0m [91m                                    
+~~~~~~~[0m
+
+      
+[96mtest/onboarding.e2e-spec.ts[0m:[93m3[0m:[93m1[0m
+        [7m3[0m import * as request from 'supertest';
+        [7m [0m 
+[96m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+        Type originates at this import. A namespace-style 
+import cannot be called or constructed, and will cause a 
+failure at runtime. Consider using a default import or 
+import require here instead.
+    [96mtest/onboarding.e2e-spec.ts[0m:[93m109[0m:[93m2
+8[0m - [91merror[0m[90m TS2349: [0mThis expression is 
+not callable.
+      Type '{ default: SuperTestStatic; Test: typeof Test; 
+agent: typeof TestAgent & ((app?: App | undefined, 
+options?: AgentOptions | undefined) => TestAgent<...>); }' 
+has no call signatures.
+
+    [7m109[0m     const response = await 
+request(app.getHttpServer())
+    [7m   [0m [91m                           ~~~~~~~[0m
+
+      
+[96mtest/onboarding.e2e-spec.ts[0m:[93m3[0m:[93m1[0m
+        [7m3[0m import * as request from 'supertest';
+        [7m [0m 
+[96m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+        Type originates at this import. A namespace-style 
+import cannot be called or constructed, and will cause a 
+failure at runtime. Consider using a default import or 
+import require here instead.
+    [96mtest/onboarding.e2e-spec.ts[0m:[93m135[0m:[93m2
+8[0m - [91merror[0m[90m TS2349: [0mThis expression is 
+not callable.
+      Type '{ default: SuperTestStatic; Test: typeof Test; 
+agent: typeof TestAgent & ((app?: App | undefined, 
+options?: AgentOptions | undefined) => TestAgent<...>); }' 
+has no call signatures.
+
+    [7m135[0m     const response = await 
+request(app.getHttpServer())
+    [7m   [0m [91m                           ~~~~~~~[0m
+
+      
+[96mtest/onboarding.e2e-spec.ts[0m:[93m3[0m:[93m1[0m
+        [7m3[0m import * as request from 'supertest';
+        [7m [0m 
+[96m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+        Type originates at this import. A namespace-style 
+import cannot be called or constructed, and will cause a 
+failure at runtime. Consider using a default import or 
+import require here instead.
+    [96mtest/onboarding.e2e-spec.ts[0m:[93m148[0m:[93m1
+2[0m - [91merror[0m[90m TS18047: [0m'tenant' is 
+possibly 'null'.
+
+    [7m148[0m     expect(tenant.name).toBe('Onboarding 
+Theater D');
+    [7m   [0m [91m           ~~~~~~[0m
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        12.793 s
+Ran all test suites matching test/onboarding.e2e-spec.ts.
+npm error Lifecycle script `test:e2e` failed with error:
+npm error code 1
+npm error path C:\Users\bogad\ticket booking project\backend
+npm error workspace backend@0.0.1
+npm error location C:\Users\bogad\ticket booking 
+project\backend
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c jest 
+--config ./test/jest-e2e.json --runInBand 
+test/onboarding.e2e-spec.ts
