@@ -71,33 +71,36 @@ import { WebsocketModule } from './websocket/websocket.module';
     */
 
     BullModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: async (config: ConfigService) => {
+  inject: [ConfigService],
+  useFactory: async (config: ConfigService) => {
 
-        const redisUrl = config.get<string>('UPSTASH_REDIS_REST_URL');
-        const redisToken = config.get<string>('UPSTASH_REDIS_REST_TOKEN');
+    const redisUrl = config.get<string>('UPSTASH_REDIS_REST_URL');
+    const redisToken = config.get<string>('UPSTASH_REDIS_REST_TOKEN');
 
-        const host = config.get<string>('REDIS_HOST') || '127.0.0.1';
-        const port = Number(config.get('REDIS_PORT')) || 6379;
+    const host = config.get<string>('REDIS_HOST') || '127.0.0.1';
+    const port = Number(config.get('REDIS_PORT')) || 6379;
 
-        if (redisUrl && redisToken) {
-          return {
-            connection: new Redis(redisUrl, {
-              password: redisToken,
-              maxRetriesPerRequest: null,
-            }),
-          };
-        }
+    if (redisUrl && redisToken) {
+      return {
+        connection: {
+          host: redisUrl.replace('https://', '').replace('http://', ''),
+          port: 443,
+          password: redisToken,
+          tls: {},
+          maxRetriesPerRequest: null,
+        },
+      };
+    }
 
-        return {
-          connection: {
-            host,
-            port,
-            maxRetriesPerRequest: null,
-          },
-        };
+    return {
+      connection: {
+        host,
+        port,
+        maxRetriesPerRequest: null,
       },
-    }),
+    };
+  },
+}),
 
     /*
     ===============================
