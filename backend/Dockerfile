@@ -6,14 +6,17 @@ WORKDIR /app
 # Install system deps
 RUN apk add --no-cache openssl libc6-compat
 
-# Copy package files
-COPY package*.json ./
+# Copy backend package files
+COPY backend/package*.json ./
+
+# Copy shared package
+COPY shared ./shared
 
 # Install dependencies
 RUN npm install
 
-# Copy source code
-COPY . .
+# Copy backend source
+COPY backend .
 
 # Generate Prisma client
 RUN npx prisma generate
