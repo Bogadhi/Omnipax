@@ -74,7 +74,8 @@
     "rxjs": "^7.8.1",
     "swagger-ui-express": "^5.0.1",
     "uuid": "^9.0.1",
-    "winston": "^3.19.0"
+    "winston": "^3.19.0",
+    "ticket-booking-shared": "file:../shared"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
