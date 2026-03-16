@@ -1,37 +1,79 @@
-# SSL and HTTPS Setup
+# OMNIPAX Backend
 
-This project uses Certbot for SSL certificate management and Nginx as a reverse proxy with security hardening.
+NestJS + TypeScript backend for multi-tenant seat booking with Redis locks, BullMQ workers, Razorpay payments, QR ticketing, and WebSocket seat updates.
 
-## Initial Setup
+## Tech Stack
+- NestJS
+- Prisma + PostgreSQL
+- Redis
+- BullMQ
+- Razorpay
+- Socket.IO
 
-1. **Replace Domain**: In `docker-compose.yml` and `nginx/default.conf`, replace `yourdomain.com` (or use the `DOMAIN` environment variable).
-2. **Request Certificate**:
-   Run the following command to obtain the initial certificate from Let's Encrypt:
+## Setup
+1. Copy environment variables:
    ```bash
-   docker compose run --rm certbot certonly \
-     --webroot \
-     --webroot-path=/var/www/certbot \
-     --email your@email.com \
-     --agree-tos \
-     --no-eff-email \
-     -d yourdomain.com
+   cp .env.example backend/.env
    ```
-3. **Restart Nginx**:
+2. Install dependencies:
    ```bash
-   docker compose restart nginx
+   cd backend
+   yarn install
+   ```
+3. Generate Prisma client:
+   ```bash
+   yarn prisma:generate
+   ```
+4. Apply migrations:
+   ```bash
+   yarn prisma:migrate:deploy
+   ```
+5. Run service:
+   ```bash
+   yarn start:dev
    ```
 
-## Auto Renewal
+## Core Features
+- JWT authentication (`/api/auth/*`)
+- Tenant-aware routing via `x-tenant-slug`
+- Redis seat locks with 5-minute TTL (`/api/seat-locks`)
+- Booking initiation + Razorpay order creation (`/api/bookings/initiate`)
+- Razorpay webhook signature verification (`/api/payments/webhook`)
+- Booking confirmation only after webhook verification
+- Idempotent webhook processing (`PaymentWebhookEvent`)
+- QR ticket generation on successful payment
+- WebSocket seat updates (`/seats` namespace, `join_event` room subscription)
+- BullMQ processors for seat lock expiry and booking expiry
 
-The stack includes a `certbot-renew` service that automatically checks for certificate renewals every 12 hours.
+## API Overview
+- `POST /api/tenants`
+- `GET /api/tenants/:slug`
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/events`
+- `GET /api/events`
+- `GET /api/events/:eventId/seats`
+- `POST /api/seat-locks`
+- `DELETE /api/seat-locks`
+- `POST /api/bookings/initiate`
+- `GET /api/bookings/me`
+- `GET /api/bookings/:bookingId/ticket`
+- `POST /api/bookings/verify-ticket`
+- `POST /api/payments/webhook`
 
-## Security Hardening
+## WebSocket
+- Namespace: `/seats`
+- Client event: `join_event`
+  ```json
+  { "tenantSlug": "cinema-a", "eventId": "evt_123" }
+  ```
+- Server event: `seat_update`
 
-The Nginx configuration includes:
+## Deployment
+- `render.yaml` included for Render deployment.
 
-- HTTP to HTTPS redirection.
-- HSTS (Strict-Transport-Security) header.
-- X-Frame-Options (SAMEORIGIN).
-- X-Content-Type-Options (nosniff).
-- Referrer-Policy.
-- TLS 1.2 and 1.3 only.
+## Notes
+- Users are global across tenants.
+- All tenant-scoped endpoints require `x-tenant-slug` header.
+- Seat locks expire after `SEAT_LOCK_TTL_SECONDS`.
+- Pending bookings expire after `BOOKING_TTL_MINUTES`.

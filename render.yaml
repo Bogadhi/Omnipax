@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: omnipax-api
+    env: node
+    rootDir: backend
+    buildCommand: yarn install --frozen-lockfile && yarn prisma:generate && yarn prisma:migrate:deploy && yarn build
+    startCommand: yarn start:prod
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: PORT
+        value: 8001
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false
+      - key: SEAT_LOCK_TTL_SECONDS
+        value: 300
+      - key: BOOKING_TTL_MINUTES
+        value: 15
